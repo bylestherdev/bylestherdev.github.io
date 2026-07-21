@@ -12,6 +12,9 @@ export default function CalculadoraPage() {
     phone: "",
   });
 
+  // Estado para el botón de carga
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Estados de la calculadora
   const [hoursPerWeek, setHoursPerWeek] = useState(5); 
   const [costPerHour, setCostPerHour] = useState(15);
@@ -30,35 +33,28 @@ export default function CalculadoraPage() {
     tenPlusHours: false,
   });
 
- // 1. Fetch a la API del dólar en tiempo real al cargar la página
+  // 1. Fetch a la API del dólar en tiempo real al cargar la página
   useEffect(() => {
     const fetchDolar = async () => {
       try {
-        // Usamos DolarAPI, que no tiene problemas de CORS en localhost
         const response = await fetch('https://cl.dolarapi.com/v1/cotizaciones/usd');
-        
-        if (!response.ok) {
-          throw new Error('Error al conectar con la API del dólar');
-        }
-        
+        if (!response.ok) throw new Error('Error al conectar con la API del dólar');
         const data = await response.json();
-        
         if (data && data.venta) {
-          setExchangeRate(data.venta); // Toma el valor oficial de venta del día
+          setExchangeRate(data.venta);
         }
       } catch (error) {
-        console.warn("No se pudo obtener el valor del dólar en vivo. Usando valor de respaldo (930).", error);
+        console.warn("Usando valor de dólar de respaldo.", error);
       }
     };
-    
     fetchDolar();
   }, []);
-  
-  // 2. Función para convertir a CLP (Usa Math.round para números enteros exactos)
+
+  // 2. Función para convertir a CLP 
   const toCLP = (usd: number) => Math.round(usd * exchangeRate).toLocaleString('es-CL');
 
   const PAIN_POINTS_DATA = [
-    { id: 'manualData', label: 'Copiamos datos manualmente entre apps (CRM, sheets, WhatsApp)', penaltyHours: 5 },
+    { id: 'manualData', label: 'Copiamos datos manually entre apps (CRM, sheets, WhatsApp)', penaltyHours: 5 },
     { id: 'repetitiveQuestions', label: 'Respondemos las mismas preguntas de clientes todos los días', penaltyHours: 4 },
     { id: 'lostLeads', label: 'Los leads se pierden porque no alcanzamos a responder a tiempo', penaltyHours: 3 },
     { id: 'manualFollowUp', label: 'Hacemos seguimiento manual por WhatsApp sin un sistema claro', penaltyHours: 4 },
@@ -85,10 +81,55 @@ export default function CalculadoraPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ==========================================
+  // LÓGICA DE ENVÍO A n8n / WEBHOOK
+  // ==========================================
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Enviando a n8n:", { formData, painPoints, exchangeRate, totals: { operationalLoss, opportunityLoss, totalLoss } });
-    setStep(5); // Pantalla final de éxito
+    setIsSubmitting(true); // Activa el estado de carga
+
+    // Preparamos el paquete de datos estructurado
+    const payload = {
+      contacto: formData,
+      dolores_marcados: painPoints,
+      metricas_ingresadas: {
+        horas_semana: hoursPerWeek,
+        costo_hora: costPerHour,
+        leads_perdidos: leadsLost,
+        ticket_promedio: ticketValue
+      },
+      calculo_final: {
+        perdida_operativa_usd: operationalLoss,
+        perdida_oportunidad_usd: opportunityLoss,
+        perdida_total_usd: totalLoss,
+        valor_dolar_usado: exchangeRate
+      },
+      fecha_registro: new Date().toISOString()
+    };
+
+    try {
+      // REEMPLAZA ESTO CON LA URL DE TU WEBHOOK DE n8n
+      const WEBHOOK_URL = "https://snobbish-chupacabra.pikapod.net/webhook/calculadora-data";      
+      // Hacemos el envío de datos
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Independientemente de la respuesta de n8n, avanzamos a la pantalla final
+      setStep(5); 
+
+    } catch (error) {
+      console.error("Error al enviar los datos:", error);
+      // Opcional: Podrías mostrar una alerta, pero en ventas es mejor 
+      // avanzar al paso 5 para que el cliente igual vea el botón de WhatsApp
+      setStep(5);
+    } finally {
+      setIsSubmitting(false); // Apagamos el estado de carga
+    }
   };
 
   return (
@@ -187,7 +228,6 @@ export default function CalculadoraPage() {
                       ${ticketValue} USD <span className="text-[#94a3b8] block sm:inline font-normal text-sm">(${toCLP(ticketValue)} CLP)</span>
                     </span>
                   </div>
-                  {/* Actualizado a máximo 1000 y saltos de 1 en 1 */}
                   <input type="range" min="1" max="1000" step="1" value={ticketValue} onChange={(e) => setTicketValue(Number(e.target.value))} className="w-full accent-[#10B981]" />
                 </div>
               </div>
@@ -221,9 +261,9 @@ export default function CalculadoraPage() {
                   className="w-full bg-[#111827] border border-[#2d3a4f] rounded-lg px-5 py-4 text-white focus:outline-none focus:border-[#3b82f6]"
                 />
                 <div className="flex gap-4 pt-4">
-                  <button type="button" onClick={() => setStep(3)} className="px-6 py-3.5 rounded-lg text-[#cbd5e1] border border-[#2d3a4f] hover:bg-[#1a2235]">Atrás</button>
-                  <button type="submit" className="btn-action flex-grow !bg-[#10B981] hover:!bg-[#059669]">
-                    Obtener mi diagnóstico →
+                  <button type="button" disabled={isSubmitting} onClick={() => setStep(3)} className="px-6 py-3.5 rounded-lg text-[#cbd5e1] border border-[#2d3a4f] hover:bg-[#1a2235] disabled:opacity-50">Atrás</button>
+                  <button type="submit" disabled={isSubmitting} className="btn-action flex-grow !bg-[#10B981] hover:!bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed">
+                    {isSubmitting ? "Enviando diagnóstico..." : "Obtener mi diagnóstico →"}
                   </button>
                 </div>
               </form>
