@@ -2,20 +2,43 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav>
-      <Link href="/" className="nav-logo">
-        bylesther<span>dev</span>
-      </Link>
-      <div className="nav-right">
-        <ul className="nav-links">
-          <li><Link href="/servicios">Servicios</Link></li>
-          <li><Link href="/calculadora">Calculadora</Link></li>
-          <li><Link href="/demo-ia">Demo IA</Link></li>
-        </ul>
-        <Link href="/contacto" className="nav-pill">
-          Agendar consultoría →
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-[#2d3a4f]">
+      <div className="w-full px-6 lg:px-12 h-20 flex items-center justify-between">
+        
+        {/* Logo */}
+        <Link href="/" className="font-sans font-bold text-xl tracking-tight text-white">
+          bylesther<span className="text-[#3b82f6]">dev</span>
         </Link>
+
+        {/* Links de Navegación Desktop */}
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/servicios" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Servicios</Link>
+          <Link href="/calculadora" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Calculadora</Link>
+          <Link href="/simulador-ia" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Simulador IA</Link>
+          <Link href="/contacto" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Contacto</Link>
+        </nav>
+
+        {/* Botón CTA Desktop - WhatsApp Directo */}
+        <div className="hidden md:block">
+          <a 
+            href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+            target="_blank" 
+            rel="noreferrer"
+            className="btn-action !py-2.5 !px-5 !text-sm !bg-[#10B981] hover:!bg-[#059669] !shadow-[0_4px_20px_rgba(16,185,129,0.3)] !inline-flex items-center justify-center gap-2.5"
+          >
+            <span className="text-lg leading-none">✆</span>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        {/* Botón Menú Mobile (Hamburguesa) */}
+        <button className="md:hidden text-[#cbd5e1] hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+
       </div>
-    </nav>
+    </header>
   );
 }
