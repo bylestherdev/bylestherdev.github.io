@@ -1,5 +1,4 @@
 import AIDemoWidget from "@/components/AIDemoWidget";
-import Navbar from "@/components/Navbar"; // O tu navbar global si ya lo tienes en el layout
 
 export default function SimuladorPage() {
   return (
