@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios Especializados | bylestherdev",
-  description: "Desarrollo E-commerce (VTEX IO), sitios web a medida y automatización de procesos empresariales con Inteligencia Artificial.",
+  title: "Servicios | E-commerce, Automatización IA y Desarrollo Web — ByLesther Dev",
+  description: "Creación y administración de e-commerce, automatización con IA, mailing transaccional y sitios web a medida. Soluciones digitales que escalan tu negocio.",
 };
 
 export default function Servicios() {
@@ -24,11 +24,26 @@ export default function Servicios() {
 
       {/* Contenedor de Tarjetas */}
       <div className="w-full space-y-10 md:space-y-12">
+
+        {/* Automatización & IA — Destacado como el fuerte de la agencia */}
+        <div className="bg-[#111827] border-2 border-[#10B981]/40 rounded-2xl p-6 md:p-12 shadow-lg relative">
+          <span className="absolute -top-3 left-6 bg-[#10B981] text-[#0B0F19] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+            Nuestro fuerte
+          </span>
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Automatización & Inteligencia Artificial</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base mb-4 leading-relaxed">
+            Elimina las tareas repetitivas que le quitan tiempo a tu equipo. Construyo flujos con <strong className="text-white">n8n</strong> que conectan tus herramientas, tu CRM y tus redes en un solo sistema que trabaja solo.
+          </p>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            Integro <strong className="text-white">OpenAI</strong> y <strong className="text-white">Google Gemini</strong> para desplegar asistentes virtuales, chatbots de WhatsApp e Instagram, y sistemas de calificación de leads que atienden y venden 24/7 — sin que tú estés detrás de la pantalla.
+          </p>
+        </div>
+
         {/* E-commerce */}
         <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
-          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Desarrollo E-commerce Avanzado</h2>
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">E-commerce: Creación y Administración</h2>
           <p className="text-[#94a3b8] text-sm md:text-base mb-8 leading-relaxed">
-            Más de 4 años de experiencia manejando arquitecturas de alto tráfico y eventos críticos como <strong className="text-white">Cyber Monday</strong>. Especialista en el ecosistema <strong className="text-white">VTEX IO</strong>, construyendo tiendas robustas que no se caen cuando más vendes.
+            Más de 4 años construyendo y operando tiendas de alto tráfico, incluyendo eventos críticos como <strong className="text-white">Cyber Monday</strong>. Especialista en el ecosistema <strong className="text-white">VTEX IO</strong> — desde el lanzamiento de tu tienda hasta la administración continua: catálogo, promociones, integraciones de pago y soporte cuando más lo necesitas.
           </p>
           <div>
             <span className="text-[#3b82f6] text-xs font-bold uppercase tracking-wider block mb-4">
@@ -44,14 +59,11 @@ export default function Servicios() {
           </div>
         </div>
 
-        {/* Automatización & IA */}
+        {/* Mailing Transaccional y Promocional */}
         <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
-          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Automatización & Inteligencia Artificial</h2>
-          <p className="text-[#94a3b8] text-sm md:text-base mb-4 leading-relaxed">
-            Elimina el trabajo manual de tu equipo. Construyo flujos de trabajo eficientes utilizando <strong className="text-white">n8n</strong> para conectar todas tus herramientas y CRM.
-          </p>
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Mailing Transaccional y Promocional</h2>
           <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
-            Integro motores avanzados como <strong className="text-white">OpenAI</strong> y <strong className="text-white">Google Gemini</strong> para desplegar asistentes virtuales inteligentes, chatbots conversacionales y sistemas de calificación de leads que operan 24/7.
+            Diseño y automatizo correos que realmente se abren: recordatorios de citas y agenda, confirmaciones de compra, campañas de eventos, lanzamientos de productos y promociones. Cada envío con diseño propio de tu marca, disparado automáticamente en el momento justo — sin que tengas que enviarlo a mano.
           </p>
         </div>
 
@@ -62,6 +74,39 @@ export default function Servicios() {
             No me ato a una sola tecnología; elijo la herramienta adecuada para el problema adecuado. Desde landing pages ultra rápidas para captación de clientes, hasta sitios corporativos dinámicos o portales internos de gestión. Tu modelo de negocio dicta la arquitectura.
           </p>
         </div>
+
+        {/* Mantenimiento y Soporte Continuo (Care) */}
+        <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Mantenimiento y Soporte Continuo</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            Un sitio o una automatización que nadie revisa, tarde o temprano falla. Con un plan de mantenimiento mensual monitoreo tus flujos, aplico actualizaciones, reviso que tus integraciones sigan funcionando y respondo cuando algo necesita ajustarse — para que no tengas que preocuparte de la parte técnica nunca más.
+          </p>
+        </div>
+
+        {/* Dashboards e Informes Automatizados */}
+        <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Dashboards e Informes Automatizados</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            Deja de armar reportes a mano. Construyo paneles que centralizan tus ventas, leads y métricas clave en un solo lugar, actualizados automáticamente — para que sepas cómo va tu negocio sin tener que pedírselo a nadie.
+          </p>
+        </div>
+
+        {/* Integración de Pagos */}
+        <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Integración de Pagos Online</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            ¿No necesitas una tienda completa, solo cobrar online? Integro pasarelas como <strong className="text-white">Stripe</strong> y <strong className="text-white">Webpay</strong> directo en tu sitio o flujo de reservas, para que puedas recibir pagos sin fricción desde el primer día.
+          </p>
+        </div>
+
+        {/* Optimización de Velocidad y SEO Técnico */}
+        <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Optimización de Velocidad y SEO Técnico</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            Un sitio lento pierde clientes y posiciones en Google. Audito y optimizo el rendimiento de tu plataforma (Core Web Vitals) y su estructura técnica de SEO, para que cargue rápido y sea fácil de encontrar.
+          </p>
+        </div>
+
       </div>
 
       {/* CTA Final */}

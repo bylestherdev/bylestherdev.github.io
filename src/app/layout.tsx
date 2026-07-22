@@ -5,9 +5,53 @@ import Footer from "@/components/global/Footer";
 import FloatingCTA from "@/components/global/FloatingCTA";
 
 export const metadata: Metadata = {
-  // Aquí está el cambio con mayúsculas y espacios corregidos
-  title: "By Lesther Dev — Automatización de Operaciones y Desarrollo Web",
-  description: "Automatizo tus operaciones e integro IA para que tu negocio escale sin contratar más personal.",
+  title: "ByLesther Dev | Automatización con IA y Desarrollo Web para Negocios",
+  description: "Agencia de automatización e IA en Chile. Integro n8n, chatbots y desarrollo web (Next.js) para que tu negocio escale sin contratar más personal.",
+  keywords: [
+    "automatización de procesos",
+    "desarrollo web Next.js",
+    "agencia de IA Chile",
+    "automatización n8n",
+    "chatbots para negocios",
+    "desarrollo web Santiago",
+  ],
+  authors: [{ name: "Jordi" }],
+  metadataBase: new URL("https://bylestherdev.vercel.app/"), // reemplaza por tu dominio real
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "ByLesther Dev | Automatización con IA y Desarrollo Web",
+    description: "Automatizo tus operaciones e integro IA para que tu negocio escale sin contratar más personal.",
+    url: "https://bylestherdev.vercel.app/",
+    siteName: "ByLesther Dev",
+    locale: "es_CL",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png", // 1200x630px recomendado
+        width: 1200,
+        height: 630,
+        alt: "ByLesther Dev — Automatización e IA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ByLesther Dev | Automatización con IA y Desarrollo Web",
+    description: "Automatizo tus operaciones e integro IA para que tu negocio escale sin contratar más personal.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

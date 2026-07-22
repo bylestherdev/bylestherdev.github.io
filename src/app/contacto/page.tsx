@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacto | bylestherdev",
-  description: "Ponte en contacto para automatizar tus procesos o desarrollar tu plataforma web.",
+  title: "Contacto | Cotiza tu Proyecto — ByLesther Dev",
+  description: "Agenda una consultoría gratuita para automatizar tus procesos, crear tu e-commerce o desarrollar tu plataforma web. Respuesta en menos de 24 horas.",
 };
 
 export default function Contacto() {
@@ -15,10 +15,10 @@ export default function Contacto() {
           Hablemos
         </span>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
-          Inicia tu transformación<br /><em className="text-[#3b82f6] not-italic">digital hoy.</em>
+          Cuéntame qué necesitas<br /><em className="text-[#3b82f6] not-italic">automatizar o construir.</em>
         </h1>
         <p className="text-[#94a3b8] text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-          Agenda una consultoría, envíame un mensaje directo o revisa mi trabajo. Respondo en menos de 24 horas.
+          Sin compromiso: cuéntame tu caso y te digo si puedo ayudarte y cómo. Respondo en menos de 24 horas.
         </p>
       </div>
 
@@ -32,7 +32,7 @@ export default function Contacto() {
         >
           <span className="text-[#10B981] text-4xl mb-4 block">✆</span>
           <h3 className="text-white text-lg md:text-xl font-semibold mb-1">WhatsApp</h3>
-          <p className="text-[#94a3b8] text-sm md:text-base group-hover:text-white transition-colors">+56 9 4697 6778</p>
+          <p className="text-[#94a3b8] text-sm md:text-base group-hover:text-white transition-colors">Respuesta más rápida</p>
         </a>
 
         {/* Email */}
