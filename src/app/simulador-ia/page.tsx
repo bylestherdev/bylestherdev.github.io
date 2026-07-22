@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
-import UnderConstruction from "@/components/global/UnderConstruction";
+import AIDemoWidget from "@/components/AIDemoWidget";
+import Navbar from "@/components/Navbar"; // O tu navbar global si ya lo tienes en el layout
 
-export const metadata: Metadata = {
-  title: "Demo Chatbot IA | bylestherdev",
-  description: "Prueba nuestro agente conversacional con IA en diferentes rubros.",
-  robots: "noindex, nofollow",
-};
-
-export default function DemoIAPage() {
+export default function SimuladorPage() {
   return (
-    <UnderConstruction 
-      title="Demo IA en construcción." 
-      message="Pronto podrás interactuar con un asistente virtual impulsado por Gemini y OpenAI simulando diferentes industrias."
-    />
+    <main className="min-h-screen bg-[#0B0F19] pt-24 pb-16">
+      {/* Puedes agregar un contenedor o breadcrumb si lo deseas */}
+      <AIDemoWidget />
+    </main>
   );
 }
