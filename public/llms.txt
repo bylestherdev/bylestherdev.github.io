@@ -1,0 +1,30 @@
+# ByLesther Dev
+
+> Agencia de automatización con inteligencia artificial, desarrollo de e-commerce (VTEX IO) y sitios web a medida para negocios en Chile y LATAM.
+
+ByLesther Dev, liderada por Jordi, ayuda a emprendedores digitales a eliminar tareas manuales mediante automatización con IA (n8n, OpenAI, Google Gemini), y a construir o administrar tiendas online de alto tráfico y sitios web a medida en Next.js.
+
+## Servicios
+
+- [Automatización & Inteligencia Artificial](https://bylesther.dev/servicios): flujos de trabajo con n8n, chatbots de WhatsApp e Instagram, calificación automática de leads, asistentes 24/7.
+- [E-commerce: Creación y Administración](https://bylesther.dev/servicios): desarrollo y administración de tiendas VTEX IO, con experiencia real en eventos de alto tráfico como Cyber Monday.
+- [Mailing Transaccional y Promocional](https://bylesther.dev/servicios): correos automatizados de recordatorios, confirmaciones de compra y campañas de lanzamiento.
+- [Sitios y Plataformas a Medida](https://bylesther.dev/servicios): landing pages, sitios corporativos y portales internos en Next.js.
+- [Mantenimiento y Soporte Continuo](https://bylesther.dev/servicios): plan mensual de soporte técnico y monitoreo de automatizaciones.
+- [Dashboards e Informes Automatizados](https://bylesther.dev/servicios): paneles de métricas de ventas y leads, actualizados automáticamente.
+- [Integración de Pagos Online](https://bylesther.dev/servicios): Stripe y Webpay integrados en sitios y flujos de reserva.
+- [Optimización de Velocidad y SEO Técnico](https://bylesther.dev/servicios): auditoría de Core Web Vitals y estructura técnica de SEO.
+
+## Páginas
+
+- [Inicio](https://bylesther.dev/): presentación general de la agencia y sus servicios.
+- [Servicios](https://bylesther.dev/servicios): catálogo completo de servicios ofrecidos.
+- [Preguntas Frecuentes](https://bylesther.dev/faqs): dudas comunes sobre plazos, pagos, propiedad del código y alcance del trabajo.
+- [Contacto](https://bylesther.dev/contacto): formas de contacto directo (WhatsApp, correo, Instagram, GitHub).
+- [Calculadora de Pérdidas](https://bylesther.dev/calculadora): herramienta para estimar pérdidas por falta de automatización.
+- [Simulador de Asistente IA](https://bylesther.dev/simulador-ia): demo interactiva de un asistente de IA disponible 24/7.
+
+## Optional
+
+- [Instagram](https://instagram.com/bylestherdev): actualizaciones y contenido de la marca.
+- [GitHub](https://github.com/bylestherdev): proyectos y código público.

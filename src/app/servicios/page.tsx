@@ -6,9 +6,75 @@ export const metadata: Metadata = {
   description: "Creación y administración de e-commerce, automatización con IA, mailing transaccional y sitios web a medida. Soluciones digitales que escalan tu negocio.",
 };
 
+const services = [
+  {
+    name: "Automatización & Inteligencia Artificial",
+    description:
+      "Flujos de trabajo con n8n que conectan herramientas y CRM, integrando OpenAI y Google Gemini para desplegar asistentes virtuales, chatbots de WhatsApp e Instagram, y sistemas de calificación de leads que operan 24/7.",
+  },
+  {
+    name: "E-commerce: Creación y Administración",
+    description:
+      "Desarrollo y administración de tiendas online en el ecosistema VTEX IO, con experiencia en arquitecturas de alto tráfico como Cyber Monday — desde el lanzamiento hasta la operación continua.",
+  },
+  {
+    name: "Mailing Transaccional y Promocional",
+    description:
+      "Diseño y automatización de correos transaccionales y promocionales: recordatorios de citas, confirmaciones de compra, campañas de eventos y lanzamientos de productos.",
+  },
+  {
+    name: "Sitios y Plataformas a Medida",
+    description:
+      "Desarrollo de landing pages, sitios corporativos y portales internos de gestión, con la arquitectura tecnológica adecuada según el modelo de negocio del cliente.",
+  },
+  {
+    name: "Mantenimiento y Soporte Continuo",
+    description:
+      "Plan de mantenimiento mensual con monitoreo de automatizaciones, actualizaciones y soporte técnico continuo para sitios web y flujos de automatización.",
+  },
+  {
+    name: "Dashboards e Informes Automatizados",
+    description:
+      "Paneles que centralizan ventas, leads y métricas clave en un solo lugar, actualizados automáticamente.",
+  },
+  {
+    name: "Integración de Pagos Online",
+    description:
+      "Integración de pasarelas de pago como Stripe y Webpay directamente en sitios web y flujos de reserva.",
+  },
+  {
+    name: "Optimización de Velocidad y SEO Técnico",
+    description:
+      "Auditoría y optimización de rendimiento web (Core Web Vitals) y estructura técnica de SEO.",
+  },
+];
+
 export default function Servicios() {
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: services.map((service, index) => ({
+      "@type": "Service",
+      position: index + 1,
+      name: service.name,
+      description: service.description,
+      provider: {
+        "@id": "https://bylesther.dev/#organization",
+      },
+      areaServed: [
+        { "@type": "Country", name: "Chile" },
+        { "@type": "Place", name: "LATAM" },
+      ],
+    })),
+  };
+
   return (
     <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12 max-w-5xl mx-auto flex flex-col items-center">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+
       {/* Header de la página */}
       <div className="w-full text-center mb-16 md:mb-24">
         <span className="text-[#10B981] text-xs md:text-sm font-bold tracking-widest uppercase mb-4 block">

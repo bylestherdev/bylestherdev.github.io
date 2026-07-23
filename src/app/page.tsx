@@ -1,4 +1,10 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Automatización con IA y Desarrollo Web",
+  description: "Construyo sistemas con IA que responden, agendan y venden 24/7. Automatización, e-commerce y desarrollo web para negocios en Chile y LATAM.",
+};
 
 export default function Home() {
   return (

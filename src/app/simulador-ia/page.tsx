@@ -1,4 +1,10 @@
 import AIDemoWidget from "@/components/AIDemoWidget";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Simulador de Asistente de IA 24/7",
+  description: "Prueba en vivo cómo un asistente con IA puede responder y atender a tus clientes las 24 horas, sin intervención humana.",
+};
 
 export default function SimuladorPage() {
   return (

@@ -21,6 +21,9 @@ export default function Footer() {
           <Link href="/terminos" className="text-[#94a3b8] hover:text-white text-sm transition-colors">
             Términos
           </Link>
+          <Link href="/faqs" className="text-[#94a3b8] hover:text-white text-sm transition-colors">
+            Preguntas Frecuentes
+          </Link>
           <a href="https://instagram.com/bylestherdev" target="_blank" rel="noreferrer" className="text-[#94a3b8] hover:text-white text-sm transition-colors">
             Instagram
           </a>
