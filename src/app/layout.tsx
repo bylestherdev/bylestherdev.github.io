@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
@@ -107,6 +108,8 @@ export default function RootLayout({
     },
   };
 
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+
   return (
     <html lang="es" suppressHydrationWarning>
       <body className="bg-[#0B0F19] text-[#f0f4f8] antialiased min-h-screen flex flex-col">
@@ -120,6 +123,9 @@ export default function RootLayout({
         </main>
         <FloatingCTA />
         <Footer />
+        {process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
+        )}
       </body>
     </html>
   );
