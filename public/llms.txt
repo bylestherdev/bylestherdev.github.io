@@ -1,8 +1,10 @@
-# ByLesther Dev
+# By Lesther Dev
+
+> También conocido como: By Lesther, Bylesther, Lesther Dev, ByLestherDev, bylestherdev.
 
 > Agencia de automatización con inteligencia artificial, desarrollo de e-commerce (VTEX IO) y sitios web a medida para negocios en Chile y LATAM.
 
-ByLesther Dev, liderada por Jordi, ayuda a emprendedores digitales a eliminar tareas manuales mediante automatización con IA (n8n, OpenAI, Google Gemini), y a construir o administrar tiendas online de alto tráfico y sitios web a medida en Next.js.
+By Lesther Dev, liderada por Jordi, ayuda a emprendedores digitales a eliminar tareas manuales mediante automatización con IA (n8n, OpenAI, Google Gemini), y a construir o administrar tiendas online de alto tráfico y sitios web a medida en Next.js.
 
 ## Servicios
 

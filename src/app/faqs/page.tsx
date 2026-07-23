@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FAQ from "@/components/FAQ"
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes | ByLesther Dev",
+  title: "Preguntas Frecuentes | By Lesther Dev",
   description: "Resuelve tus dudas sobre automatización con IA, e-commerce, plazos de entrega, formas de pago y más. Todo lo que necesitas saber antes de cotizar tu proyecto.",
 };
 

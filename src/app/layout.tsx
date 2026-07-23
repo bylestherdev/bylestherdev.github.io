@@ -7,8 +7,8 @@ import FloatingCTA from "@/components/global/FloatingCTA";
 
 export const metadata: Metadata = {
   title: {
-    default: "ByLesther Dev | Automatización con IA y Desarrollo Web para Negocios",
-    template: "%s | ByLesther Dev",
+    default: "By Lesther Dev | Automatización con IA y Desarrollo Web para Negocios",
+    template: "%s | By Lesther Dev",
   },
   description: "Agencia de automatización e IA en Chile. Integro n8n, chatbots y desarrollo web (Next.js) para que tu negocio escale sin contratar más personal.",
   keywords: [
@@ -22,17 +22,17 @@ export const metadata: Metadata = {
     "mailing transaccional",
   ],
   authors: [{ name: "Jordi", url: "https://bylesther.dev" }],
-  creator: "ByLesther Dev",
-  publisher: "ByLesther Dev",
+  creator: "By Lesther Dev",
+  publisher: "By Lesther Dev",
   metadataBase: new URL("https://bylesther.dev/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "ByLesther Dev | Automatización con IA y Desarrollo Web",
+    title: "By Lesther Dev | Automatización con IA y Desarrollo Web",
     description: "Automatizo tus operaciones e integro IA para que tu negocio escale sin contratar más personal.",
     url: "https://bylesther.dev/",
-    siteName: "ByLesther Dev",
+    siteName: "By Lesther Dev",
     locale: "es_CL",
     type: "website",
     images: [
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ByLesther Dev — Automatización e IA",
+        alt: "By Lesther Dev — Automatización e IA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ByLesther Dev | Automatización con IA y Desarrollo Web",
+    title: "By Lesther Dev | Automatización con IA y Desarrollo Web",
     description: "Automatizo tus operaciones e integro IA para que tu negocio escale sin contratar más personal.",
     images: ["/og-image.png"],
   },
@@ -86,7 +86,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": "https://bylesther.dev/#organization",
-    name: "ByLesther Dev",
+    name: "By Lesther Dev",
+    alternateName: ["By Lesther", "Bylesther", "Lesther Dev", "ByLesther",
+      "ByLestherDev", "ByLesther Dev", "bylestherdev", "by lesther dev"],
     url: "https://bylesther.dev",
     logo: "https://bylesther.dev/logo.png",
     image: "https://bylesther.dev/og-image.png",
@@ -108,6 +110,14 @@ export default function RootLayout({
     },
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "By Lesther Dev",
+    alternateName: ["By Lesther", "Bylesther", "Lesther Dev", "byleshterdev", "ByLestherDev"],
+    url: "https://bylesther.dev",
+  };
+
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
   return (
@@ -116,6 +126,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Navbar />
         <main className="flex-grow flex flex-col w-full">

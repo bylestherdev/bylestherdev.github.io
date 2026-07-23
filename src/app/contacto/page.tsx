@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacto | Cotiza tu Proyecto — ByLesther Dev",
+  title: "Contacto | Cotiza tu Proyecto — By Lesther Dev",
   description: "Agenda una consultoría gratuita para automatizar tus procesos, crear tu e-commerce o desarrollar tu plataforma web. Respuesta en menos de 24 horas.",
 };
 

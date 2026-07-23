@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios | E-commerce, Automatización IA y Desarrollo Web — ByLesther Dev",
+  title: "Servicios | E-commerce, Automatización IA y Desarrollo Web — By Lesther Dev",
   description: "Creación y administración de e-commerce, automatización con IA, mailing transaccional y sitios web a medida. Soluciones digitales que escalan tu negocio.",
 };
 
