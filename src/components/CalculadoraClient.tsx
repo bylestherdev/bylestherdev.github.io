@@ -277,11 +277,10 @@ export default function CalculadoraClient() {
               </p>
 
               
-                href={`https://wa.me/56946976778?text=Hola%20Jordi,%20mi%20diagnóstico%20dio%20una%20pérdida%20de%20$${totalLoss.toLocaleString()}%20USD%20y%20quiero%20automatizar.`}
+                <a href={`https://wa.me/56946976778?text=Hola%20Jordi,%20mi%20diagnóstico%20dio%20una%20pérdida%20de%20$${totalLoss.toLocaleString()}%20USD%20y%20quiero%20automatizar.`}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-action w-full text-center md:w-auto inline-block py-4 px-8 text-lg font-bold"
-              >
+                className="btn-action w-full text-center md:w-auto inline-block py-4 px-8 text-lg font-bold">
                 Quiero recuperar ese tiempo →
               </a>
             </div>
