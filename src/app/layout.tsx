@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "By Lesther Dev — Automatización e IA",
+        alt: "By Lesther Dev — Automatización con IA",
       },
     ],
   },
@@ -66,9 +66,9 @@ export const metadata: Metadata = {
   category: "technology",
   // Descomenta cuando verifiques el sitio en Google Search Console —
   // ahí te dan este código.
-  // verification: {
-  //   google: "tu-código-de-verificación",
-  // },
+  verification: {
+    google: "google77f9324dc3f6f7dc.html",
+  },
 };
 
 export const viewport: Viewport = {
