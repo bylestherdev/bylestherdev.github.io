@@ -6,10 +6,7 @@ import Footer from "@/components/global/Footer";
 import FloatingCTA from "@/components/global/FloatingCTA";
 
 export const metadata: Metadata = {
-  title: {
-    default: "By Lesther Dev | Automatización con IA y Desarrollo Web para Negocios",
-    template: "%s | By Lesther Dev",
-  },
+  title: "By Lesther Dev | Automatización con IA y Desarrollo Web para Negocios",
   description: "Agencia de automatización e IA en Chile. Integro n8n, chatbots y desarrollo web (Next.js) para que tu negocio escale sin contratar más personal.",
   keywords: [
     "automatización de procesos",

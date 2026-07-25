@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones | bylestherdev",
+  title: "Términos y Condiciones | By Lesther Dev",
   robots: "noindex, nofollow",
 };
+
+// Actualiza esta fecha manualmente solo cuando modifiques el contenido de estos términos.
+const LAST_UPDATED = "23 de julio de 2026";
 
 export default function Terminos() {
   return (
@@ -14,20 +17,20 @@ export default function Terminos() {
       
       <div className="space-y-8 text-base md:text-lg leading-relaxed">
         <p className="text-[#94a3b8] italic">
-          Última actualización: {new Date().toLocaleDateString('es-CL')}
+          Última actualización: {LAST_UPDATED}
         </p>
 
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">1. Aceptación de los Términos</h2>
           <p>
-            Al acceder y utilizar el sitio web <strong className="text-white">bylestherdev</strong>, usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestros servicios ni nuestro sitio web.
+            Al acceder y utilizar el sitio web <strong className="text-white">By Lesther Dev</strong>, usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestros servicios ni nuestro sitio web.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">2. Servicios Ofrecidos</h2>
           <p>
-            bylestherdev ofrece servicios de consultoría, desarrollo de software a medida, implementación de E-commerce (VTEX IO y otros) y automatización de procesos mediante Inteligencia Artificial. Cada proyecto está sujeto a un contrato o propuesta comercial independiente (formato PDF o digital) que detallará los alcances específicos, cronogramas y costos.
+            By Lesther Dev ofrece servicios de consultoría, desarrollo de software a medida, implementación de E-commerce (VTEX IO y otros) y automatización de procesos mediante Inteligencia Artificial. Cada proyecto está sujeto a un contrato o propuesta comercial independiente (formato PDF o digital) que detallará los alcances específicos, cronogramas y costos.
           </p>
         </section>
 
@@ -42,14 +45,14 @@ export default function Terminos() {
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">4. Propiedad Intelectual</h2>
           <p>
-            Todo el código, diseño y arquitectura entregados al cliente pasan a ser propiedad intelectual del mismo una vez que se ha liquidado el 100% del pago acordado del proyecto. bylestherdev se reserva el derecho de utilizar los proyectos realizados como parte de su portafolio comercial, a menos que se firme un Acuerdo de Confidencialidad (NDA).
+            Todo el código, diseño y arquitectura entregados al cliente pasan a ser propiedad intelectual del mismo una vez que se ha liquidado el 100% del pago acordado del proyecto. By Lesther Dev se reserva el derecho de utilizar los proyectos realizados como parte de su portafolio comercial, a menos que se firme un Acuerdo de Confidencialidad (NDA).
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">5. Limitación de Responsabilidad</h2>
           <p>
-            bylestherdev no será responsable de ningún daño indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar los servicios proporcionados, ni por interrupciones atribuibles a proveedores externos (ej. caída de servidores, fallos en APIs de terceros como OpenAI o plataformas como VTEX).
+            By Lesther Dev no será responsable de ningún daño indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar los servicios proporcionados, ni por interrupciones atribuibles a proveedores externos (ej. caída de servidores, fallos en APIs de terceros como OpenAI o plataformas como VTEX).
           </p>
         </section>
 
