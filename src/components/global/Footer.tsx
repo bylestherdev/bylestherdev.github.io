@@ -7,7 +7,7 @@ export default function Footer() {
         
         <div className="text-center md:text-left">
           <p className="font-bold text-lg text-white mb-1">
-            bylesther<span className="text-[#3b82f6]">dev</span>
+            ByLesther<span className="text-[#3b82f6]">Dev</span>
           </p>
           <p className="text-[#94a3b8] text-sm">
             © {new Date().getFullYear()} Todos los derechos reservados.
