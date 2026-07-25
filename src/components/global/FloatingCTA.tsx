@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // Aparece después de bajar esta cantidad de px (aprox. pasado el hero)
-const SHOW_AFTER_PX = 500;
+const SHOW_AFTER_PX = 200;
 // Se oculta cuando falten estos px para llegar al final de la página (footer)
 const HIDE_BEFORE_FOOTER_PX = 400;
 
