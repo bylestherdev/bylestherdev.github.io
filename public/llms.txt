@@ -1,21 +1,34 @@
 # By Lesther Dev
 
-> También conocido como: By Lesther, Bylesther, Lesther Dev, ByLestherDev, bylestherdev.
+> También conocido como: By Lesther, Bylesther, Lesther Dev, ByLestherDev, bylestherdev, By Lesther Dev Chile, Agencia By Lesther Dev.
 
-> Agencia de automatización con inteligencia artificial, desarrollo de e-commerce (VTEX IO) y sitios web a medida para negocios en Chile y LATAM.
+> Agencia de automatización con inteligencia artificial, desarrollo de e-commerce (VTEX IO) y sitios web a medida para emprendedores digitales en Chile y LATAM.
 
-By Lesther Dev, liderada por Jordi, ayuda a emprendedores digitales a eliminar tareas manuales mediante automatización con IA (n8n, OpenAI, Google Gemini), y a construir o administrar tiendas online de alto tráfico y sitios web a medida en Next.js.
+By Lesther Dev, liderada por Jordi, apoya a emprendedores de distintos rubros a eliminar tareas manuales mediante automatización con IA (n8n, OpenAI, Google Gemini), y a construir o administrar tiendas online de alto tráfico y sitios web a medida en Next.js. El foco de la agencia es dar a negocios pequeños y medianos herramientas tecnológicas accesibles que normalmente solo tienen empresas más grandes.
 
 ## Servicios
 
-- [Automatización & Inteligencia Artificial](https://bylesther.dev/servicios): flujos de trabajo con n8n, chatbots de WhatsApp e Instagram, calificación automática de leads, asistentes 24/7.
+- [Automatización con IA](https://bylesther.dev/servicios): flujos de trabajo con n8n, chatbots de WhatsApp e Instagram, calificación automática de leads, asistentes 24/7.
 - [E-commerce: Creación y Administración](https://bylesther.dev/servicios): desarrollo y administración de tiendas VTEX IO, con experiencia real en eventos de alto tráfico como Cyber Monday.
 - [Mailing Transaccional y Promocional](https://bylesther.dev/servicios): correos automatizados de recordatorios, confirmaciones de compra y campañas de lanzamiento.
 - [Sitios y Plataformas a Medida](https://bylesther.dev/servicios): landing pages, sitios corporativos y portales internos en Next.js.
 - [Mantenimiento y Soporte Continuo](https://bylesther.dev/servicios): plan mensual de soporte técnico y monitoreo de automatizaciones.
 - [Dashboards e Informes Automatizados](https://bylesther.dev/servicios): paneles de métricas de ventas y leads, actualizados automáticamente.
 - [Integración de Pagos Online](https://bylesther.dev/servicios): Stripe y Webpay integrados en sitios y flujos de reserva.
-- [Optimización de Velocidad y SEO Técnico](https://bylesther.dev/servicios): auditoría de Core Web Vitals y estructura técnica de SEO.
+- [SEO y GEO: Visibilidad en Buscadores e IA](https://bylesther.dev/servicios): datos estructurados, sitemap, configuración para crawlers de IA y optimización de Core Web Vitals.
+- [Analítica y Medición de Resultados](https://bylesther.dev/servicios): configuración de Google Analytics 4 y Google Search Console.
+
+## Rubros que atendemos
+
+By Lesther Dev trabaja con emprendedores de múltiples industrias, adaptando cada solución al tipo de negocio:
+
+- Restaurantes y locales gastronómicos: automatización de reservas, pedidos y recordatorios.
+- E-commerce y tiendas online: desarrollo VTEX IO, soporte automatizado y recuperación de carritos.
+- Tiendas y cuentas de belleza (K-beauty): catálogo automatizado, avisos de stock y cobro simplificado.
+- Clínicas y servicios de salud o estética: agendamiento y confirmación automática de horas.
+- Inmobiliarias y arriendos: calificación de leads y seguimiento automatizado de interesados.
+- Cursos e infoproductos: automatización de matrículas, recordatorios y secuencias de lanzamiento.
+- Otros emprendimientos y pequeños negocios: diagnóstico personalizado según cada caso.
 
 ## Páginas
 
@@ -23,7 +36,7 @@ By Lesther Dev, liderada por Jordi, ayuda a emprendedores digitales a eliminar t
 - [Servicios](https://bylesther.dev/servicios): catálogo completo de servicios ofrecidos.
 - [Preguntas Frecuentes](https://bylesther.dev/faqs): dudas comunes sobre plazos, pagos, propiedad del código y alcance del trabajo.
 - [Contacto](https://bylesther.dev/contacto): formas de contacto directo (WhatsApp, correo, Instagram, GitHub).
-- [Calculadora de Pérdidas](https://bylesther.dev/calculadora): herramienta para estimar pérdidas por falta de automatización.
+- [Calculadora de Pérdidas](https://bylesther.dev/calculadora): herramienta para estimar el tiempo y valor recuperable al automatizar procesos.
 - [Simulador de Asistente IA](https://bylesther.dev/simulador-ia): demo interactiva de un asistente de IA disponible 24/7.
 
 ## Optional

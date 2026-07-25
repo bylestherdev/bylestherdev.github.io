@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Políticas de Privacidad | bylestherdev",
+  title: "Políticas de Privacidad | By Lesther Dev",
   robots: "noindex, nofollow",
 };
+
+// Actualiza esta fecha manualmente solo cuando modifiques el contenido de esta política.
+const LAST_UPDATED = "23 de julio de 2026";
 
 export default function Privacidad() {
   return (
@@ -14,13 +17,13 @@ export default function Privacidad() {
       
       <div className="space-y-8 text-base md:text-lg leading-relaxed">
         <p className="text-[#94a3b8] italic">
-          Última actualización: {new Date().toLocaleDateString('es-CL')}
+          Última actualización: {LAST_UPDATED}
         </p>
 
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">1. Información que recopilamos</h2>
           <p>
-            En <strong className="text-white">bylestherdev</strong> recopilamos información personal que usted nos proporciona voluntariamente al contactarnos, como su nombre, dirección de correo electrónico, número de teléfono y detalles de su proyecto. Además, al navegar por nuestro sitio web, podemos recopilar automáticamente cierta información sobre su dispositivo y el uso del sitio.
+            En <strong className="text-white">By Lesther Dev</strong> recopilamos información personal que usted nos proporciona voluntariamente al contactarnos, como su nombre, dirección de correo electrónico, número de teléfono y detalles de su proyecto. Además, al navegar por nuestro sitio web, podemos recopilar automáticamente cierta información sobre su dispositivo y el uso del sitio.
           </p>
         </section>
 
@@ -38,7 +41,7 @@ export default function Privacidad() {
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">3. Cookies, Analíticas y Píxeles de Seguimiento</h2>
           <p className="mb-4">
-            Este sitio web utiliza o se reserva el derecho de utilizar herramientas de análisis y seguimiento de terceros, incluyendo, pero no limitándose a, <strong className="text-white">Google Analytics</strong> y <strong className="text-white">Meta Pixel (Facebook Pixel)</strong>.
+            Este sitio web utiliza o se reserva el derecho de utilizar herramientas de análisis y seguimiento de terceros, incluyendo, pero no limitándose a, <strong className="text-white">Google Analytics 4</strong> y <strong className="text-white">Meta Pixel (Facebook Pixel)</strong>.
           </p>
           <p>
             Estas tecnologías utilizan "cookies" y tecnologías similares para ayudar a analizar cómo los usuarios utilizan el sitio, medir la efectividad de las campañas publicitarias y orientar anuncios según las interacciones previas. Usted puede configurar su navegador para que rechace todas las cookies o para que le avise cuando se envíe una cookie.

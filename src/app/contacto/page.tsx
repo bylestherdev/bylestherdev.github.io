@@ -6,9 +6,26 @@ export const metadata: Metadata = {
 };
 
 export default function Contacto() {
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contacto | By Lesther Dev",
+    url: "https://bylesther.dev/contacto",
+    about: {
+      "@id": "https://bylesther.dev/#organization",
+    },
+    mainEntity: {
+      "@id": "https://bylesther.dev/#organization",
+    },
+  };
+
   return (
     <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12 max-w-4xl mx-auto flex flex-col items-center">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
+
       {/* Header Centrado */}
       <div className="w-full text-center mb-16 md:mb-20">
         <span className="text-[#10B981] text-xs md:text-sm font-bold tracking-widest uppercase mb-4 block">

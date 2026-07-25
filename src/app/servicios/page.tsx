@@ -2,13 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios | E-commerce, Automatización IA y Desarrollo Web — By Lesther Dev",
-  description: "Creación y administración de e-commerce, automatización con IA, mailing transaccional y sitios web a medida. Soluciones digitales que escalan tu negocio.",
+  title: "Servicios | E-commerce, Automatización con IA y Desarrollo Web — By Lesther Dev",
+  description: "Creación y administración de e-commerce, automatización con IA, mailing transaccional, sitios web a medida, SEO/GEO y analítica. Soluciones digitales que escalan tu negocio.",
 };
 
 const services = [
   {
-    name: "Automatización & Inteligencia Artificial",
+    name: "Automatización con IA",
     description:
       "Flujos de trabajo con n8n que conectan herramientas y CRM, integrando OpenAI y Google Gemini para desplegar asistentes virtuales, chatbots de WhatsApp e Instagram, y sistemas de calificación de leads que operan 24/7.",
   },
@@ -43,9 +43,14 @@ const services = [
       "Integración de pasarelas de pago como Stripe y Webpay directamente en sitios web y flujos de reserva.",
   },
   {
-    name: "Optimización de Velocidad y SEO Técnico",
+    name: "SEO y GEO: Visibilidad en Buscadores e IA",
     description:
-      "Auditoría y optimización de rendimiento web (Core Web Vitals) y estructura técnica de SEO.",
+      "Optimización técnica para que tu sitio sea encontrado tanto en Google como en motores de IA generativa (ChatGPT, Perplexity, AI Overviews): datos estructurados, sitemap, configuración para crawlers de IA y mejora de Core Web Vitals.",
+  },
+  {
+    name: "Analítica y Medición de Resultados",
+    description:
+      "Configuración de Google Analytics 4 y Google Search Console para que tengas visibilidad real de tu tráfico, de dónde vienen tus visitas y cómo se comportan en tu sitio.",
   },
 ];
 
@@ -91,17 +96,17 @@ export default function Servicios() {
       {/* Contenedor de Tarjetas */}
       <div className="w-full space-y-10 md:space-y-12">
 
-        {/* Automatización & IA — Destacado como el fuerte de la agencia */}
+        {/* Automatización con IA — Destacado como el fuerte de la agencia */}
         <div className="bg-[#111827] border-2 border-[#10B981]/40 rounded-2xl p-6 md:p-12 shadow-lg relative">
           <span className="absolute -top-3 left-6 bg-[#10B981] text-[#0B0F19] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
             Nuestro fuerte
           </span>
-          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Automatización & Inteligencia Artificial</h2>
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Automatización con IA</h2>
           <p className="text-[#94a3b8] text-sm md:text-base mb-4 leading-relaxed">
             Elimina las tareas repetitivas que le quitan tiempo a tu equipo. Construyo flujos con <strong className="text-white">n8n</strong> que conectan tus herramientas, tu CRM y tus redes en un solo sistema que trabaja solo.
           </p>
           <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
-            Integro <strong className="text-white">OpenAI</strong> y <strong className="text-white">Google Gemini</strong> para desplegar asistentes virtuales, chatbots de WhatsApp e Instagram, y sistemas de calificación de leads que atienden y venden 24/7 — sin que tú estés detrás de la pantalla.
+            Integro <strong className="text-white">OpenAI</strong> y <strong className="text-white">Google Gemini</strong> para desplegar asistentes virtuales, chatbots de WhatsApp e Instagram, y sistemas de calificación de leads que atienden y acompañan a tus clientes 24/7 — dándole a tu equipo más espacio para enfocarse en lo que realmente importa.
           </p>
         </div>
 
@@ -145,7 +150,7 @@ export default function Servicios() {
         <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
           <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Mantenimiento y Soporte Continuo</h2>
           <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
-            Un sitio o una automatización que nadie revisa, tarde o temprano falla. Con un plan de mantenimiento mensual monitoreo tus flujos, aplico actualizaciones, reviso que tus integraciones sigan funcionando y respondo cuando algo necesita ajustarse — para que no tengas que preocuparte de la parte técnica nunca más.
+            Un sitio o una automatización que nadie revisa, tarde o temprano falla. Con un plan de mantenimiento mensual monitoreo tus flujos, aplico actualizaciones, reviso que tus integraciones sigan funcionando y respondo cuando algo necesita ajustarse — para que tú y tu equipo se enfoquen en el negocio, no en la parte técnica.
           </p>
         </div>
 
@@ -153,7 +158,7 @@ export default function Servicios() {
         <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
           <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Dashboards e Informes Automatizados</h2>
           <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
-            Deja de armar reportes a mano. Construyo paneles que centralizan tus ventas, leads y métricas clave en un solo lugar, actualizados automáticamente — para que sepas cómo va tu negocio sin tener que pedírselo a nadie.
+            Deja de armar reportes a mano. Construyo paneles que centralizan tus ventas, leads y métricas clave en un solo lugar, actualizados automáticamente — para que tu equipo sepa cómo va el negocio sin tener que pedírselo a nadie.
           </p>
         </div>
 
@@ -165,11 +170,19 @@ export default function Servicios() {
           </p>
         </div>
 
-        {/* Optimización de Velocidad y SEO Técnico */}
+        {/* SEO y GEO */}
         <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
-          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Optimización de Velocidad y SEO Técnico</h2>
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">SEO y GEO: Visibilidad en Buscadores e IA</h2>
           <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
-            Un sitio lento pierde clientes y posiciones en Google. Audito y optimizo el rendimiento de tu plataforma (Core Web Vitals) y su estructura técnica de SEO, para que cargue rápido y sea fácil de encontrar.
+            Un sitio lento o invisible para los buscadores pierde clientes. Optimizo el rendimiento de tu plataforma (Core Web Vitals) y su estructura técnica de SEO, y configuro datos estructurados y acceso para que también te encuentren en motores de IA generativa como ChatGPT, Perplexity o el modo IA de Google — la nueva forma en que muchas personas buscan hoy.
+          </p>
+        </div>
+
+        {/* Analítica */}
+        <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 md:p-12 shadow-lg">
+          <h2 className="font-serif text-2xl md:text-4xl text-white mb-6">Analítica y Medición de Resultados</h2>
+          <p className="text-[#94a3b8] text-sm md:text-base leading-relaxed">
+            Configuro Google Analytics 4 y Google Search Console para que tengas datos reales: de dónde viene tu tráfico, qué páginas visitan más y cómo se comportan tus visitantes — información concreta para tomar mejores decisiones, no solo intuición.
           </p>
         </div>
 

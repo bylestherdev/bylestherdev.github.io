@@ -17,12 +17,24 @@ const faqs: FAQItem[] = [
     answer: "No. Puedo ayudarte a crear una tienda desde cero en VTEX IO, o administrar y optimizar una que ya tengas. También trabajo con negocios que recién están evaluando si necesitan un e-commerce completo o algo más simple.",
   },
   {
+    question: "¿Trabajan con negocios que no son de tecnología?",
+    answer: "Sí, de hecho es la mayoría de mis clientes. Trabajo con emprendedores de rubros muy distintos — restaurantes, tiendas de belleza, clínicas, inmobiliarias, cursos online y más. Antes de proponer cualquier solución hago una auditoría para entender tu operación específica, sin importar el rubro.",
+  },
+  {
     question: "¿Cómo funciona el pago del proyecto?",
     answer: "Trabajo con un 50% de anticipo al iniciar el proyecto y el 50% restante al momento de la entrega. Para planes de mantenimiento mensual (Care), el cobro es recurrente mes a mes.",
   },
   {
     question: "¿Qué pasa si mi negocio no es e-commerce ni tiene redes sociales activas?",
     answer: "No hay problema — antes de proponer cualquier servicio hago una auditoría para identificar dónde está el mayor cuello de botella de tu operación, y desde ahí armamos la solución que corresponda: automatización, sitio web, o ambos.",
+  },
+  {
+    question: "¿Qué incluye el servicio de SEO y GEO?",
+    answer: "Optimizo tu sitio para que te encuentren tanto en buscadores tradicionales como Google, como en motores de IA generativa como ChatGPT o Perplexity. Esto incluye datos estructurados, velocidad de carga, y configuración técnica para que tu contenido sea fácil de leer tanto para personas como para sistemas de IA.",
+  },
+  {
+    question: "¿Puedo saber cómo le está yendo a mi sitio una vez publicado?",
+    answer: "Sí, configuro Google Analytics 4 y Google Search Console en tu proyecto, para que tengas datos reales de cuánta gente visita tu sitio, de dónde viene y cómo se comporta — no tienes que quedarte con la duda de si está funcionando.",
   },
   {
     question: "¿El código y la plataforma quedan a mi nombre?",
