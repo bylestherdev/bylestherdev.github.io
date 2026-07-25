@@ -305,7 +305,7 @@ export default function CalculadoraClient() {
                 al mes en tiempo y oportunidades. Es un buen momento para poner a la IA a trabajar por ti.
               </p>
 
-              
+              <a
                 href={`https://wa.me/56946976778?text=Hola%20Jordi%2C%20mi%20diagn%C3%B3stico%20mostr%C3%B3%20que%20podr%C3%ADa%20recuperar%20%24${totalValueRecoverable.toLocaleString()}%20USD%20al%20mes%20y%20quiero%20automatizar.`}
                 target="_blank"
                 rel="noreferrer"
