@@ -8,15 +8,12 @@ interface Message {
 }
 
 export default function AIDemoWidget() {
-  // Generar un ID de sesión único para la memoria del chat
-  const [sessionId] = useState(() => Math.random().toString(36).substring(2, 15));
+  const [sessionId] = useState(() => crypto.randomUUID());
 
-  // Estados del formulario y configuración del bot
   const [businessName, setBusinessName] = useState("");
   const [industry, setIndustry] = useState("Salud / Servicios");
   const [objective, setObjective] = useState("");
-  
-  // Datos de contacto
+
   const [contactName, setContactName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [email, setEmail] = useState("");
@@ -26,44 +23,34 @@ export default function AIDemoWidget() {
   const maxFreeMessages = 3;
   const maxUnlockedMessages = 7;
 
-  // Estado del chat
   const [messages, setMessages] = useState<Message[]>([
-    { sender: "ai", text: "¡Hola! Configura tu negocio a la izquierda y prueba cómo respondería mi IA a tus clientes en tiempo real." }
+    {
+      sender: "ai",
+      text: "¡Hola! Completa los datos de tu negocio y prueba cómo respondería mi IA a tus clientes en tiempo real.",
+    },
   ]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Manejar el envío de configuración / desbloqueo (Guarda datos recolectados)
   const handleUnlock = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!businessName || !contactName || !email) {
-      alert("Por favor completa al menos el nombre del negocio, tu nombre y tu correo.");
-      return;
-    }
-
     setIsUnlocked(true);
-    
+
     try {
       await fetch("https://snobbish-chupacabra.pikapod.net/webhook/simulador-save-data", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ businessName, industry, objective, contactName, whatsapp, email })
+        body: JSON.stringify({ businessName, industry, objective, contactName, whatsapp, email }),
       });
     } catch (error) {
       console.error("Error al registrar lead:", error);
     }
   };
 
-  // Enviar mensaje en el chat con el Agente en tiempo real
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputMessage.trim() || isLoading) return;
-
     const currentLimit = isUnlocked ? maxUnlockedMessages : maxFreeMessages;
-    if (messageCount >= currentLimit) {
-      alert("Has alcanzado el límite de mensajes de prueba. Rellena tus datos a la izquierda para desbloquear más interacciones.");
-      return;
-    }
+    if (!inputMessage.trim() || isLoading || messageCount >= currentLimit) return;
 
     const userText = inputMessage;
     setInputMessage("");
@@ -78,16 +65,22 @@ export default function AIDemoWidget() {
         body: JSON.stringify({
           sessionId: sessionId,
           message: userText,
-          context: { businessName, industry, objective }
-        })
+          context: { businessName, industry, objective },
+        }),
       });
+
+      if (!response.ok) throw new Error("Respuesta no válida del webhook");
 
       const data = await response.json();
       const aiReply = data.reply || data.output || "¡Entendido! ¿En qué más te puedo ayudar?";
 
       setMessages((prev) => [...prev, { sender: "ai", text: aiReply }]);
     } catch (error) {
-      setMessages((prev) => [...prev, { sender: "ai", text: "¡Hola! Ocurrió un error conectando con el agente. Verifica que el webhook esté activo." }]);
+      console.error("Error al conectar con el agente:", error);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "ai", text: "No pude responder en este momento. Intenta de nuevo en unos segundos." },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -105,31 +98,40 @@ export default function AIDemoWidget() {
           Prueba el Asistente IA de tu Negocio
         </h2>
         <p className="text-[#cbd5e1] mt-2 max-w-xl mx-auto text-sm md:text-base">
-          Configura los datos de tu empresa a la izquierda y chatea con la IA a la derecha para ver cómo automatizará tus ventas 24/7.
+          <span className="md:hidden">
+            Configura los datos de tu empresa y luego chatea con la IA para ver cómo automatizará tus ventas 24/7.
+          </span>
+          <span className="hidden md:inline">
+            Configura los datos de tu empresa a la izquierda y chatea con la IA a la derecha para ver cómo automatizará tus ventas 24/7.
+          </span>
         </p>
       </div>
 
-      {/* Grid de Dos Pantallas */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* PANEL IZQUIERDO: Configuración y Datos (5 columnas) */}
         <div className="lg:col-span-5 bg-[#111827] border border-[#2d3a4f] rounded-2xl p-6 shadow-xl">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
               <span>⚙️</span> Configuración del Bot
             </h3>
-            <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${isUnlocked ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'}`}>
-              ⚡ Mensajes: {messageCount}/{currentLimit}
+            <span
+              className={
+                "text-xs px-2.5 py-1 rounded-full font-semibold " +
+                (isUnlocked
+                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                  : "bg-amber-500/20 text-amber-400 border border-amber-500/30")
+              }
+            >
+              Mensajes: {messageCount}/{currentLimit}
             </span>
           </div>
 
           <form onSubmit={handleUnlock} className="flex flex-col gap-4">
             <div>
               <label className="block text-xs font-medium text-[#cbd5e1] mb-1">Nombre de tu Negocio</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 required
-                placeholder="Ej. Inmobiliaria Sur" 
+                placeholder="Ej. Inmobiliaria Sur"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
                 className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
@@ -138,7 +140,7 @@ export default function AIDemoWidget() {
 
             <div>
               <label className="block text-xs font-medium text-[#cbd5e1] mb-1">Industria o Nicho</label>
-              <select 
+              <select
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
                 className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
@@ -153,9 +155,9 @@ export default function AIDemoWidget() {
 
             <div>
               <label className="block text-xs font-medium text-[#cbd5e1] mb-1">¿Qué objetivo principal tiene el bot?</label>
-              <input 
-                type="text" 
-                placeholder="Ej. Agendar citas y responder precios" 
+              <input
+                type="text"
+                placeholder="Ej. Agendar citas y responder precios"
                 value={objective}
                 onChange={(e) => setObjective(e.target.value)}
                 className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
@@ -167,10 +169,10 @@ export default function AIDemoWidget() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-medium text-[#cbd5e1] mb-1">Tu Nombre</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   required
-                  placeholder="Tu nombre" 
+                  placeholder="Tu nombre"
                   value={contactName}
                   onChange={(e) => setContactName(e.target.value)}
                   className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
@@ -178,9 +180,9 @@ export default function AIDemoWidget() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-[#cbd5e1] mb-1">WhatsApp</label>
-                <input 
-                  type="text" 
-                  placeholder="+569..." 
+                <input
+                  type="text"
+                  placeholder="+569..."
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
@@ -190,42 +192,38 @@ export default function AIDemoWidget() {
 
             <div>
               <label className="block text-xs font-medium text-[#cbd5e1] mb-1">Correo Electrónico</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 required
-                placeholder="tucorreo@empresa.com" 
+                placeholder="tucorreo@empresa.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#0b0f19] border border-[#2d3a4f] rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#3b82f6]"
               />
             </div>
 
-            <button 
+            <button
               type="submit"
               className="mt-2 w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white font-medium py-2.5 rounded-lg text-sm transition-all shadow-lg"
             >
-              {isUnlocked ? "✓ Datos Actualizados (7 Mensajes Activos)" : "Desbloquear 7 Mensajes y Probar IA"}
+              {isUnlocked ? "Datos actualizados (7 mensajes activos)" : "Desbloquear 7 mensajes y probar IA"}
             </button>
           </form>
 
-          {/* Gancho de ventas CTA Inferior */}
           <div className="mt-6 pt-5 border-t border-[#2d3a4f] text-center">
             <p className="text-xs text-[#94a3b8] mb-3">¿Quieres este agente operando en tu propio sitio web y WhatsApp?</p>
-            <a 
-              href="https://wa.me/56946976778?text=Hola%20Jordi,%20probé%20la%20demo%20del%20asistente%20IA%20y%20quiero%20mi%20propio%20bot%2024/7"
+            
+              href="https://wa.me/56946976778?text=Hola%20Jordi%2C%20prob%C3%A9%20la%20demo%20del%20asistente%20IA%20y%20quiero%20mi%20propio%20bot%2024%2F7"
               target="_blank"
               rel="noreferrer"
               className="block w-full bg-[#10B981] hover:bg-[#059669] text-white font-bold py-2.5 rounded-lg text-sm text-center transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]"
             >
-              🚀 Solicitar mi Demo Completa
+              Solicitar mi demo completa
             </a>
           </div>
         </div>
 
-        {/* PANEL DERECHO: Chat Interactivo Estilo WhatsApp (7 columnas) */}
         <div className="lg:col-span-7 bg-[#0b141a] border border-[#2d3a4f] rounded-2xl flex flex-col h-[550px] shadow-2xl overflow-hidden">
-          
-          {/* Header del Chat */}
           <div className="bg-[#1f2c34] px-4 py-3 flex items-center gap-3 border-b border-[#2d3a4f]">
             <div className="w-10 h-10 rounded-full bg-[#10B981] flex items-center justify-center text-white font-bold text-lg shadow">
               🤖
@@ -240,16 +238,16 @@ export default function AIDemoWidget() {
             </div>
           </div>
 
-          {/* Cuerpo de Mensajes */}
           <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-[radial-gradient(#1f2c34_1px,transparent_1px)] [background-size:16px_16px]">
             {messages.map((msg, index) => (
-              <div 
-                key={index} 
-                className={`max-w-[80%] p-3 rounded-xl text-sm leading-relaxed ${
-                  msg.sender === "user" 
-                    ? "bg-[#005c4b] text-white self-end rounded-tr-none shadow" 
-                    : "bg-[#202c33] text-[#e9edef] self-start rounded-tl-none border border-[#2d3a4f] shadow"
-                }`}
+              <div
+                key={index}
+                className={
+                  "max-w-[80%] p-3 rounded-xl text-sm leading-relaxed " +
+                  (msg.sender === "user"
+                    ? "bg-[#005c4b] text-white self-end rounded-tr-none shadow"
+                    : "bg-[#202c33] text-[#e9edef] self-start rounded-tl-none border border-[#2d3a4f] shadow")
+                }
               >
                 {msg.text}
               </div>
@@ -261,27 +259,28 @@ export default function AIDemoWidget() {
             )}
           </div>
 
-          {/* Barra de Entrada de Mensajes */}
           <form onSubmit={handleSendMessage} className="bg-[#1f2c34] p-3 flex items-center gap-2 border-t border-[#2d3a4f]">
-            <input 
-              type="text" 
-              placeholder={messageCount >= currentLimit ? "Límite alcanzado. Actualiza tus datos a la izquierda." : "Escribe una pregunta para probar el bot..."}
+            <input
+              type="text"
+              placeholder={
+                messageCount >= currentLimit
+                  ? "Límite alcanzado. Actualiza tus datos arriba."
+                  : "Escribe una pregunta para probar el bot..."
+              }
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               disabled={messageCount >= currentLimit}
               className="flex-1 bg-[#2a3942] text-white placeholder-[#8696a0] px-4 py-2.5 rounded-lg text-sm focus:outline-none disabled:opacity-50"
             />
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={messageCount >= currentLimit || isLoading}
               className="bg-[#00a884] hover:bg-[#008f6f] text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all disabled:opacity-50 shadow"
             >
               Enviar
             </button>
           </form>
-
         </div>
-
       </div>
     </section>
   );
