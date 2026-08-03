@@ -20,6 +20,7 @@ export default function Navbar() {
           <Link href="/servicios" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Servicios</Link>
           <Link href="/calculadora" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Calculadora</Link>
           <Link href="/simulador-ia" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Simulador IA</Link>
+          <Link href="/mis-trabajos" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Mis Trabajos</Link>
           <Link href="/contacto" className="text-[#cbd5e1] hover:text-white transition-colors text-sm font-medium">Contacto</Link>
         </nav>
 
@@ -87,6 +88,13 @@ export default function Navbar() {
             className="text-white text-xl font-medium py-3"
           >
             Simulador IA
+          </Link>
+          <Link 
+            href="/mis-trabajos" 
+            onClick={() => setIsOpen(false)}
+            className="text-white text-xl font-medium py-3"
+          >
+            Mis Trabajos
           </Link>
           <Link 
             href="/contacto" 
