@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useRef, useEffect } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 interface Message {
   sender: "user" | "ai";
@@ -32,13 +32,6 @@ export default function AIDemoWidget() {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Ref para auto-scroll
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // Auto-scroll cuando hay nuevos mensajes
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
 
   // Memoizar el límite actual
   const currentLimit = useMemo(
@@ -365,7 +358,6 @@ export default function AIDemoWidget() {
                 Escribiendo respuesta...
               </div>
             )}
-            <div ref={messagesEndRef} />
           </div>
 
           <form
