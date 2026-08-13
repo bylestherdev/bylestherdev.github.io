@@ -17,10 +17,10 @@ jobs:
         with:
           script: |
             const headRef = context.payload.pull_request.head.ref;
-            const allowedPattern = /^(feature|fix|hotfix|chore|refactor|docs)\/.+/;
+            const allowedPattern = /^(feature|fix|hotfix|chore|refactor|docs|dependabot)\/.+/;
             console.log(`Checking branch name: ${headRef}`);
             if (!allowedPattern.test(headRef)) {
-              core.setFailed(`❌ Invalid branch name "${headRef}". PRs into main must come from a branch starting with feature/, fix/, hotfix/, chore/, refactor/, or docs/.`);
+              core.setFailed(`❌ Invalid branch name "${headRef}". PRs into main must come from a branch starting with feature/, fix/, hotfix/, chore/, refactor/, docs/, or dependabot/.`);
             } else {
               console.log(`✅ Branch name "${headRef}" is valid.`);
             }
