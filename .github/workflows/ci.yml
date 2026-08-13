@@ -1,0 +1,85 @@
+name: CI Security & Quality Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-branch:
+    name: Validate Branch Naming
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Source Branch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const headRef = context.payload.pull_request.head.ref;
+            const allowedPattern = /^(feature|fix|hotfix|chore|refactor|docs)\/.+/;
+            console.log(`Checking branch name: ${headRef}`);
+            if (!allowedPattern.test(headRef)) {
+              core.setFailed(`❌ Invalid branch name "${headRef}". PRs into main must come from a branch starting with feature/, fix/, hotfix/, chore/, refactor/, or docs/.`);
+            } else {
+              console.log(`✅ Branch name "${headRef}" is valid.`);
+            }
+
+  validate-pr-title:
+    name: Validate PR Title (Conventional Commits)
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Title
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title;
+            const conventionalCommitsRegex = /^(feat|fix|hotfix|chore|refactor|docs|style|perf|test)(\(.+\))?!?: .+$/;
+            console.log(`Checking PR title: "${title}"`);
+            if (!conventionalCommitsRegex.test(title)) {
+              core.setFailed(`❌ Invalid PR title "${title}". It must follow Conventional Commits format (e.g., "feat(auth): add login button" or "fix: resolve navigation bug").`);
+            } else {
+              console.log(`✅ PR title is valid.`);
+            }
+
+  security-and-quality:
+    name: Lint, Types & Security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for Secrets (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit Dependencies (SCA)
+        run: pnpm audit --prod --audit-level=high
+
+      - name: Check TypeScript Types
+        run: npx tsc --noEmit
+
+      - name: Run ESLint
+        run: pnpm lint
+
+      - name: Build Project (Next.js sanity check)
+        run: pnpm build

@@ -44,7 +44,7 @@ export default function Privacidad() {
             Este sitio web utiliza o se reserva el derecho de utilizar herramientas de análisis y seguimiento de terceros, incluyendo, pero no limitándose a, <strong className="text-white">Google Analytics 4</strong> y <strong className="text-white">Meta Pixel (Facebook Pixel)</strong>.
           </p>
           <p>
-            Estas tecnologías utilizan "cookies" y tecnologías similares para ayudar a analizar cómo los usuarios utilizan el sitio, medir la efectividad de las campañas publicitarias y orientar anuncios según las interacciones previas. Usted puede configurar su navegador para que rechace todas las cookies o para que le avise cuando se envíe una cookie.
+            Estas tecnologías utilizan &ldquo;cookies&rdquo; y tecnologías similares para ayudar a analizar cómo los usuarios utilizan el sitio, medir la efectividad de las campañas publicitarias y orientar anuncios según las interacciones previas. Usted puede configurar su navegador para que rechace todas las cookies o para que le avise cuando se envíe una cookie.
           </p>
         </section>
 

@@ -1,0 +1,7 @@
+# Global owner
+* @bylestherdev
+
+# Critical configuration files
+/package.json @bylestherdev
+/tsconfig.json @bylestherdev
+/.github/workflows/ @bylestherdev

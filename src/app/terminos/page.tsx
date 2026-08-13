@@ -37,7 +37,7 @@ export default function Terminos() {
         <section>
           <h2 className="text-2xl text-white font-semibold mt-10 mb-5">3. Cotizaciones y Pagos</h2>
           <p>
-            Las tarifas mencionadas en el sitio web son de referencia ("desde"). El costo final se determina tras la consultoría inicial. 
+            Las tarifas mencionadas en el sitio web son de referencia (&ldquo;desde&rdquo;). El costo final se determina tras la consultoría inicial. 
             Como estándar de trabajo, se requiere un <strong className="text-white">pago de anticipo del 50%</strong> para iniciar cualquier proyecto, y el <strong className="text-white">50% restante a la entrega</strong>, a menos que se acuerde expresamente lo contrario por escrito.
           </p>
         </section>
