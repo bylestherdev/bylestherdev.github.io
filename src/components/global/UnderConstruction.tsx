@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RobotMascot } from "@/components/global/RobotMascota";
 
 interface UnderConstructionProps {
   title?: string;
@@ -11,7 +12,15 @@ export default function UnderConstruction({
 }: UnderConstructionProps) {
   return (
     <main className="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
-      <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-10 md:p-14 w-full">
+      <div className="bg-[#111827] border border-[#2d3a4f] rounded-2xl p-10 md:p-14 w-full flex flex-col items-center">
+        <div className="mb-6 flex justify-center">
+          <RobotMascot
+            expression="happy"
+            size={130}
+            state="greeting"
+            showNameTag={false}
+          />
+        </div>
         <p className="text-[#10B981] text-xs font-bold tracking-widest uppercase mb-4">
           Trabajando en ello
         </p>

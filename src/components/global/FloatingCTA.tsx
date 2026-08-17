@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { RobotMascot } from "@/components/global/RobotMascota";
 
 // Aparece después de bajar esta cantidad de px (aprox. pasado el hero)
 const SHOW_AFTER_PX = 200;
@@ -205,13 +206,25 @@ export default function FloatingCTA() {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label={isOpen ? "Cerrar asistente" : "Abrir asistente de IA"}
         className={
-          "flex items-center justify-center w-14 h-14 rounded-full bg-[#10B981] hover:bg-[#059669] shadow-[0_4px_20px_rgba(16,185,129,0.4)] transition-all duration-300 " +
+          "relative group flex items-center justify-center w-14 h-14 rounded-full bg-[#10B981] hover:bg-[#059669] shadow-[0_4px_20px_rgba(16,185,129,0.4)] transition-all duration-300 " +
           (isVisible || isOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none")
         }
       >
-        <span className="text-2xl leading-none text-white">{isOpen ? "×" : "💬"}</span>
+        {isOpen ? (
+          <span className="text-2xl leading-none text-white font-bold">×</span>
+        ) : (
+          <>
+            <div className="absolute inset-0 flex items-center justify-center scale-90 pointer-events-none">
+              <RobotMascot state="head-only" expression="happy" size={56} />
+            </div>
+            {/* Tooltip flotante al hacer hover */}
+            <div className="absolute right-16 px-3 py-1 bg-slate-900/95 backdrop-blur-md border border-cyan-500/40 text-cyan-200 text-xs font-mono rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              ¡Hola! ¿Hablamos? 🤖
+            </div>
+          </>
+        )}
       </button>
     </div>
   );

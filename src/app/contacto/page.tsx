@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RobotMascot } from "@/components/global/RobotMascota";
 
 export const metadata: Metadata = {
   title: "Contacto | Cotiza tu Proyecto — By Lesther Dev",
@@ -27,7 +28,10 @@ export default function Contacto() {
       />
 
       {/* Header Centrado */}
-      <div className="w-full text-center mb-16 md:mb-20">
+      <div className="w-full text-center mb-16 md:mb-20 flex flex-col items-center">
+        <div className="mb-6">
+          <RobotMascot expression="wink" size={150} state="greeting" showNameTag speechText="¡Escríbeme por WhatsApp!" />
+        </div>
         <span className="text-[#10B981] text-xs md:text-sm font-bold tracking-widest uppercase mb-4 block">
           Hablemos
         </span>

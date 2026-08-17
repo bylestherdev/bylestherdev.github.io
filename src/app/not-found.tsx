@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RobotMascot } from "@/components/global/RobotMascota";
 
 export default function NotFound() {
   return (
@@ -8,8 +9,8 @@ export default function NotFound() {
         <h1 className="text-[120px] md:text-[180px] font-black text-transparent bg-clip-text bg-gradient-to-br from-[#3b82f6]/20 to-[#10B981]/20 select-none">
           404
         </h1>
-        <div className="absolute text-5xl md:text-6xl drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-          🤖
+        <div className="absolute drop-shadow-[0_0_20px_rgba(239,68,68,0.4)]">
+          <RobotMascot expression="alert" size={140} state="thinking" speechText="¡Ruta no encontrada!" />
         </div>
       </div>
 
