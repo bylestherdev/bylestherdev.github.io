@@ -35,8 +35,8 @@ export default function Home() {
         </div>
 
         {/* Mascota saludando debajo del título principal */}
-        <div className="my-4 flex justify-center">
-          <HomeMascot />
+        <div className="my-4 flex justify-center md:mt-6">
+          <HomeMascot phoneNumber="56986252511" />
         </div>
 
         {/* Subtítulo */}

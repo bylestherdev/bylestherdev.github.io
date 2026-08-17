@@ -11,13 +11,11 @@ interface RobotMascotProps {
   expression?: MascotExpression
   className?: string
   size?: number
-  speechText?: string
-  showNameTag?: boolean
+  speechText?: string // Este texto se usará si se pasa, de lo contrario un predeterminado.
   onClick?: () => void
 }
 
 // Curva de easing "orgánica": arranca rápido y frena con un leve rebote de llegada.
-const ORGANIC = [0.34, 1.35, 0.64, 1] as const
 const SOFT_OUT = [0.22, 1, 0.36, 1] as const
 
 export const RobotMascot: React.FC<RobotMascotProps> = ({
@@ -26,7 +24,6 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
   className = '',
   size = 240,
   speechText,
-  showNameTag = false,
   onClick
 }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -82,27 +79,24 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
   }
 
   // ────────────────────────────────────────────────────────────
-  // SALUDO (greeting) — brazo derecho ahora sube y se EXTIENDE al costado
-  // de la cabeza en vez de quedarse pegado al cuerpo.
-  // El hombro hace el trabajo grande (sube el brazo ~110°) y el codo/antebrazo
-  // se mantiene casi recto, solo con un ligero vaivén — así se lee como un
-  // brazo extendido saludando, no como un codo doblado hacia abajo.
+  // SALUDO (greeting) — brazo derecho sube y se EXTIENDE al costado
+  // con originX/Y corregidos para Framer Motion.
   // ────────────────────────────────────────────────────────────
 
   // Hombro Derecho
   const rightShoulderVariants: Variants = {
     idle: { rotate: [0, 3, 0], transition: { duration: 3.4, repeat: Infinity, ease: SOFT_OUT } },
-    greeting: { rotate: -45, transition: { type: 'spring', stiffness: 160, damping: 15 } },
+    greeting: { rotate: -110, transition: { type: 'spring', stiffness: 160, damping: 15 } },
     thinking: { rotate: -10, transition: { type: 'spring', stiffness: 200, damping: 16 } },
     dancing: { rotate: [20, -30, 20], transition: { duration: 0.6, repeat: Infinity, ease: SOFT_OUT } },
     typing: { rotate: 15, transition: { duration: 0.3, ease: SOFT_OUT } }
   }
 
-  // Codo Derecho — antebrazo casi recto (extendido), solo oscila un poco para el "vaivén" del saludo
+  // Codo Derecho — antebrazo casi recto (extendido)
   const rightElbowVariants: Variants = {
     idle: { rotate: [0, 5, 0], transition: { duration: 3.4, repeat: Infinity, ease: SOFT_OUT, delay: 0.15 } },
     greeting: {
-      rotate: [-80, -105, -80, -105, -80],
+      rotate: [0, -15, 0, -15, 0],
       transition: { duration: 1.1, repeat: Infinity, ease: 'easeInOut', delay: 0.1 }
     },
     thinking: { rotate: -75, transition: { type: 'spring', stiffness: 170, damping: 11, delay: 0.12 } },
@@ -113,7 +107,7 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
     }
   }
 
-  // Hombro Izquierdo (queda relajado, apoyando la pose)
+  // Hombro Izquierdo (queda relajado)
   const leftShoulderVariants: Variants = {
     idle: { rotate: [0, -3, 0], transition: { duration: 3.8, repeat: Infinity, ease: SOFT_OUT } },
     greeting: { rotate: 15, transition: { duration: 0.4 } },
@@ -156,16 +150,19 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
       onMouseLeave={() => setIsHovered(false)}
       style={{ width: size, height: isHeadOnly ? size * 0.6 : size }}
       role="img"
-      aria-label="Lesther IA - Mascota y Asistente Virtual de ByLestherDev"
+      aria-label="Lesther IA - Mascota y Asistente Virtual"
     >
-      {(speechText || (isHovered && !speechText)) && (
+      {/* ────────────────────────────────────────────────────────────
+          BOCADILLO DE DIÁLOGO: Se muestra SÓLO en hover.
+          ──────────────────────────────────────────────────────────── */}
+      {isHovered && (
         <motion.div
           initial={{ opacity: 0, y: 4, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 px-3 py-1 bg-slate-900/95 backdrop-blur-md border border-cyan-500/40 text-cyan-200 text-xs font-mono rounded-xl shadow-lg shadow-cyan-500/10 pointer-events-none whitespace-nowrap"
+          className="absolute -top-10 left-1/2 -translate-x-1/2 z-20 px-3 py-2 bg-slate-900/95 backdrop-blur-md border border-cyan-500/40 text-cyan-100 text-sm font-sans rounded-xl shadow-lg shadow-cyan-500/10 pointer-events-none whitespace-nowrap"
         >
           {speechText || "¡Hola! Soy Lesther IA 🤖"}
-          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 border-r border-b border-cyan-500/40 rotate-45" />
+          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-slate-900 border-r border-b border-cyan-500/40 rotate-45" />
         </motion.div>
       )}
 
@@ -272,9 +269,10 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
               <circle cx="150" cy="242" r="8" fill={state === 'sleeping' ? '#64748B' : '#00F0FF'} filter="url(#neonGlow)" />
             </motion.g>
 
+            {/* --- Brazo Izquierdo (con corrección de pivote) --- */}
             <motion.g
               id="left-shoulder"
-              style={{ transformBox: 'view-box', transformOrigin: '90px 175px' }}
+              style={{ transformBox: 'view-box', originX: '90px', originY: '175px' }}
               variants={leftShoulderVariants}
               animate={state}
             >
@@ -283,7 +281,7 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
               <circle cx="87" cy="220" r="7" fill="url(#chassisDark)" />
               <motion.g
                 id="left-forearm"
-                style={{ transformBox: 'view-box', transformOrigin: '87px 220px' }}
+                style={{ transformBox: 'view-box', originX: '87px', originY: '220px' }}
                 variants={leftElbowVariants}
                 animate={state}
               >
@@ -292,31 +290,13 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
               </motion.g>
             </motion.g>
 
-            <motion.g
-              id="right-shoulder"
-              style={{ transformBox: 'view-box', transformOrigin: '210px 175px' }}
-              variants={rightShoulderVariants}
-              animate={state}
-            >
-              <circle cx="210" cy="175" r="10" fill="url(#chassisDark)" />
-              <rect x="205" y="180" width="16" height="40" rx="5" fill="url(#chassisLight)" />
-              <circle cx="213" cy="220" r="7" fill="url(#chassisDark)" />
-              <motion.g
-                id="right-forearm"
-                style={{ transformBox: 'view-box', transformOrigin: '213px 220px' }}
-                variants={rightElbowVariants}
-                animate={state}
-              >
-                <rect x="205" y="225" width="16" height="35" rx="5" fill="url(#chassisLight)" />
-                <circle cx="213" cy="268" r="6" fill="url(#brandBlue)" />
-              </motion.g>
-            </motion.g>
           </>
         )}
 
+        {/* --- Cabeza --- */}
         <motion.g
           id="head"
-          style={{ transformBox: 'view-box', transformOrigin: '150px 140px' }}
+          style={{ transformBox: 'view-box', originX: '150px', originY: '140px' }}
           variants={headVariants}
           animate={isHeadOnly ? 'idle' : state}
         >
@@ -435,15 +415,31 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
             </g>
           )}
         </motion.g>
-      </svg>
 
-      {showNameTag && (
-        <div className="mt-2 text-center">
-          <span className="px-2.5 py-0.5 bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono rounded-full shadow">
-            Lesther IA · ByLestherDev
-          </span>
-        </div>
-      )}
+        {/* --- Brazo Derecho (con corrección de pivote y renderizado DESPUÉS de la cabeza) --- */}
+        {!isHeadOnly && (
+          <motion.g
+            id="right-shoulder"
+            style={{ transformBox: 'view-box', originX: '210px', originY: '175px' }}
+            variants={rightShoulderVariants}
+            animate={state}
+          >
+            <circle cx="210" cy="175" r="10" fill="url(#chassisDark)" />
+            <rect x="205" y="180" width="16" height="40" rx="5" fill="url(#chassisLight)" />
+            <circle cx="213" cy="220" r="7" fill="url(#chassisDark)" />
+            <motion.g
+              id="right-forearm"
+              style={{ transformBox: 'view-box', originX: '213px', originY: '220px' }}
+              variants={rightElbowVariants}
+              animate={state}
+            >
+              <rect x="205" y="225" width="16" height="35" rx="5" fill="url(#chassisLight)" />
+              <circle cx="213" cy="268" r="6" fill="url(#brandBlue)" />
+            </motion.g>
+          </motion.g>
+        )}
+
+      </svg>
     </div>
   )
 }
