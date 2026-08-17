@@ -13,6 +13,7 @@ interface RobotMascotProps {
   size?: number
   speechText?: string // Este texto se usará si se pasa, de lo contrario un predeterminado.
   onClick?: () => void
+  showNameTag?: boolean
 }
 
 // Curva de easing "orgánica": arranca rápido y frena con un leve rebote de llegada.
@@ -24,7 +25,8 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
   className = '',
   size = 240,
   speechText,
-  onClick
+  onClick,
+  showNameTag = false
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isBlinking, setIsBlinking] = useState(false)
@@ -440,6 +442,16 @@ export const RobotMascot: React.FC<RobotMascotProps> = ({
         )}
 
       </svg>
+
+      {showNameTag && !isHeadOnly && (
+        <motion.div
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-2 px-2.5 py-0.5 bg-slate-900/90 border border-cyan-500/30 rounded-full text-[11px] font-mono text-cyan-300 tracking-wider shadow-sm"
+        >
+          Lesther IA
+        </motion.div>
+      )}
     </div>
   )
 }

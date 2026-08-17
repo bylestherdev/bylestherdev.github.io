@@ -72,3 +72,16 @@ export type MascotExpression = 'neutral' | 'happy' | 'thinking' | 'alert' | 'win
 | `speechText` | `string` | `undefined` | Texto a mostrar en burbuja de diálogo flotante. |
 | `showNameTag` | `boolean` | `false` | Muestra la placa inferior con el nombre "Lesther IA". |
 | `onClick` | `() => void` | `undefined` | Callback al hacer clic en la mascota. |
+
+---
+
+## 6. Auditoría y Estado de Calidad (CI/CD Ready)
+* **Tipado TypeScript:** Estricto (`strict: true`), con interfaces completas y sin uso de `any`.
+* **Animaciones:** Gestionadas eficientemente con `framer-motion` y `Variants`, optimizadas para renderizado SVG vectorial.
+* **Componentes Derivados:**
+  * **`HomeMascot`**: Gestión de interacciones hover y eventos de contacto (WhatsApp).
+  * **`WhatsAppRobot`**: Wrapper especializado para llamadas directas a API de WhatsApp con mensajes personalizados.
+* **Pipeline GitHub Actions (`ci.yml`):**
+  * Verificación de TypeScript (`tsc --noEmit`).
+  * Linting con ESLint.
+  * Construcción de producción optimizada (`next build`).
