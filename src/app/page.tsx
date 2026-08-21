@@ -50,7 +50,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl mx-auto">
           {/* Fila 1: Acciones Principales */}
           <a
-            href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto."
+            href="https://wa.me/56986252511?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto."
             target="_blank"
             rel="noreferrer"
             className="btn-action w-full !bg-[#10B981] hover:!bg-[#059669] !shadow-[0_4px_20px_rgba(16,185,129,0.3)] !inline-flex items-center justify-center gap-2.5"
