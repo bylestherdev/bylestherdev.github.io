@@ -10,7 +10,7 @@ const LAST_UPDATED = "23 de julio de 2026";
 
 export default function Privacidad() {
   return (
-    <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12 max-w-3xl mx-auto text-[#cbd5e1]">
+    <main className="w-full min-h-screen pt-28 md:pt-36 pb-32 px-6 md:px-12 max-w-3xl mx-auto text-[#cbd5e1]">
       <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-10 text-center md:text-left">
         Políticas de Privacidad
       </h1>

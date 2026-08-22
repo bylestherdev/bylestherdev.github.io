@@ -61,10 +61,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   category: "technology",
-  // Descomenta cuando verifiques el sitio en Google Search Console —
-  // ahí te dan este código.
   verification: {
     google: "google77f9324dc3f6f7dc.html",
+    other: {
+      "facebook-domain-verification": "rqvr2n4ckmfoa1k1o3qt7w7dn00cmh",
+    },
   },
 };
 

@@ -74,7 +74,7 @@ export default function Servicios() {
   };
 
   return (
-    <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12 max-w-5xl mx-auto flex flex-col items-center">
+    <main className="w-full min-h-screen pt-28 md:pt-36 pb-32 px-6 md:px-12 max-w-5xl mx-auto flex flex-col items-center">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}

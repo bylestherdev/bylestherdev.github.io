@@ -115,7 +115,7 @@ export default function CalculadoraClient() {
   };
 
   return (
-    <main className="w-full min-h-screen pt-32 pb-20 px-6 flex flex-col items-center">
+    <main className="w-full min-h-screen pt-28 md:pt-36 pb-20 px-6 flex flex-col items-center">
       <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
         <div className="w-full lg:w-1/2 flex flex-col pt-8">
           {step === 1 && (
@@ -306,7 +306,7 @@ export default function CalculadoraClient() {
               </p>
 
               <a
-                href={`https://wa.me/56946976778?text=Hola%20Jordi%2C%20mi%20diagn%C3%B3stico%20mostr%C3%B3%20que%20podr%C3%ADa%20recuperar%20%24${totalValueRecoverable.toLocaleString()}%20USD%20al%20mes%20y%20quiero%20automatizar.`}
+                href={`https://wa.me/56986252511?text=Hola%20Jordi%2C%20mi%20diagn%C3%B3stico%20mostr%C3%B3%20que%20podr%C3%ADa%20recuperar%20%24${totalValueRecoverable.toLocaleString()}%20USD%20al%20mes%20y%20quiero%20automatizar.`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-action w-full text-center md:w-auto inline-block py-4 px-8 text-lg font-bold"

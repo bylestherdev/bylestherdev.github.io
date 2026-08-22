@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Faqs() {
   return (
-    <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12">
+    <main className="w-full min-h-screen pt-28 md:pt-36 pb-32 px-6 md:px-12">
       <FAQ />
     </main>
   );

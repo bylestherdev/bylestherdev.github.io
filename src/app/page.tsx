@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="w-full flex flex-col items-center">
       {/* 1. HERO SECTION */}
-      <section className="w-full max-w-[1100px] mx-auto px-6 pt-20 pb-16 md:pt-24 md:pb-20 flex flex-col items-center text-center">
+      <section className="w-full max-w-[1100px] mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20 flex flex-col items-center text-center">
         {/* Badge Disponibilidad */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-semibold uppercase tracking-wider mb-5">
           <span className="relative flex h-2 w-2">
@@ -327,7 +327,7 @@ export default function Home() {
             ayudarte, y cómo.
           </p>
           <a
-            href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto."
+            href="https://wa.me/56986252511?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto."
             target="_blank"
             rel="noreferrer"
             className="btn-action !bg-[#10B981] hover:!bg-[#059669] !shadow-[0_4px_20px_rgba(16,185,129,0.3)] !inline-flex items-center justify-center gap-2.5 px-10 py-4 text-lg"

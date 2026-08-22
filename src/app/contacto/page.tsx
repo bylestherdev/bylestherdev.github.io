@@ -21,7 +21,7 @@ export default function Contacto() {
   };
 
   return (
-    <main className="w-full min-h-screen pt-40 md:pt-48 pb-32 px-6 md:px-12 max-w-4xl mx-auto flex flex-col items-center">
+    <main className="w-full min-h-screen pt-28 md:pt-36 pb-32 px-6 md:px-12 max-w-4xl mx-auto flex flex-col items-center">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
@@ -47,7 +47,7 @@ export default function Contacto() {
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
         {/* WhatsApp */}
         <a 
-          href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+          href="https://wa.me/56986252511?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
           target="_blank" rel="noreferrer"
           className="flex flex-col items-center justify-center p-8 bg-[#111827] border border-[#2d3a4f] rounded-xl hover:border-[#10B981] transition-all hover:-translate-y-1 group"
         >

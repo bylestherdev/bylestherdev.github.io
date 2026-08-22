@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Botón WhatsApp Desktop */}
         <div className="hidden md:block">
           <a 
-            href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+            href="https://wa.me/56986252511?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
             target="_blank" 
             rel="noreferrer"
             className="py-2.5 px-5 text-sm font-medium text-white bg-[#10B981] hover:bg-[#059669] rounded-lg transition-all inline-flex items-center gap-2"
@@ -107,7 +107,7 @@ export default function Navbar() {
 
         <div className="pb-8">
           <a 
-            href="https://wa.me/56946976778?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+            href="https://wa.me/56986252511?text=Hola%20Jordi,%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
             target="_blank" 
             rel="noreferrer"
             className="w-full py-4 text-center text-white bg-[#10B981] hover:bg-[#059669] rounded-xl font-medium flex items-center justify-center gap-2 text-base shadow-lg"

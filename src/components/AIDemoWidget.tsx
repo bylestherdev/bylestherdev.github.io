@@ -311,7 +311,7 @@ export default function AIDemoWidget() {
             </p>
 
             <a
-              href="https://wa.me/56946976778?text=Hola%20Jordi%2C%20prob%C3%A9%20la%20demo%20del%20asistente%20IA%20y%20quiero%20mi%20propio%20bot%2024%2F7"
+              href="https://wa.me/56986252511?text=Hola%20Jordi%2C%20prob%C3%A9%20la%20demo%20del%20asistente%20IA%20y%20quiero%20mi%20propio%20bot%2024%2F7"
               target="_blank"
               rel="noreferrer"
               className="block w-full bg-[#10B981] hover:bg-[#059669] text-white font-bold py-2.5 rounded-lg text-sm text-center transition-all shadow-[0_4px_15px_rgba(16,185,129,0.3)]"

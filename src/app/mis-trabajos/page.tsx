@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function MisTrabajoPage() {
   return (
-    <main className="min-h-screen bg-[#0B0F19] pt-24 pb-16">
+    <main className="min-h-screen bg-[#0B0F19] pt-28 md:pt-36 pb-16">
       <UnderConstruction 
         title="Mis trabajos"
         message="Estoy preparando una galería con los sitios web y proyectos en los que he trabajado. Vuelve muy pronto para verlos."

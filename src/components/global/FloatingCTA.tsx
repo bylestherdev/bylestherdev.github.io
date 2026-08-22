@@ -10,7 +10,7 @@ const HIDE_BEFORE_FOOTER_PX = 400;
 
 const CHAT_WEBHOOK_URL = "https://snobbish-chupacabra.pikapod.net/webhook/floating-chat";
 const WHATSAPP_FALLBACK_URL =
-  "https://wa.me/56946976778?text=Hola%20Jordi%2C%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.";
+  "https://wa.me/56986252511?text=Hola%20Jordi%2C%20vengo%20de%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto.";
 
 interface ChatMessage {
   role: "user" | "assistant";
